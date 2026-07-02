@@ -8,7 +8,7 @@ package com.bekwam.spi.users.config;
  */
 public enum DBVendorType {
 
-    Oracle("oracle.jdbc.driver.OracleDriver"),
+    Oracle("oracle.jdbc.OracleDriver"),
 
     Postgres("org.postgresql.Driver");
 

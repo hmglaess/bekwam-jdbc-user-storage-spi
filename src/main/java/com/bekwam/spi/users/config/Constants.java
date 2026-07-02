@@ -22,19 +22,27 @@ public class Constants {
     public final static String PROVIDER_PROPERTY_ALL_USERS_QUERY = "select_all_users_query";
     public final static String PROVIDER_PROPERTY_SEARCH_USERS_QUERY = "select_users_query";
 
+    public final static String PROVIDER_PROPERTY_COLUMN_MAPPING = "column_mapping";
+
+    public final static String DEFAULT_VALUE_COLUMN_MAPPING =
+            "username=username\n" +
+            "password=password\n" +
+            "name=firstName\n" +
+            "email=email";
+
     public final static String PROVIDER_PROPERTY_VALIDATION_QUERY = "validation_query";
 
     public final static String DEFAULT_VALUE_DB_URL = "jdbc:postgresql://localhost:5433/userdb";
 
     public final static String DEFAULT_VALUE_ALL_USERS_QUERY =
-            "SELECT username, password, name, email FROM user ORDER BY username";
+            "SELECT username, password, name, email FROM \"user\" ORDER BY username";
 
     public final static String DEFAULT_VALUE_SEARCH_USERS_QUERY =
-            "SELECT username, password, name, email FROM user WHERE username LIKE ? OR name LIKE ? OR email LIKE ? ORDER BY username";
+            "SELECT username, password, name, email FROM \"user\" WHERE username LIKE ? OR name LIKE ? OR email LIKE ? ORDER BY username";
 
     public final static String DEFAULT_VALUE_VALIDATION_QUERY = "SELECT 1 FROM DUAL";
 
-    public final static String DEFAULT_VALUE_PASSWORD_QUERY = "SELECT password FROM user WHERE username = ?";
+    public final static String DEFAULT_VALUE_PASSWORD_QUERY = "SELECT password FROM \"user\" WHERE username = ?";
 
     public final static String DEFAULT_VALUE_ROLES_QUERY = "SELECT role_name FROM role WHERE username = ?";
 

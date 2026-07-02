@@ -3,6 +3,7 @@ package com.bekwam.spi.users.provider;
 import com.bekwam.spi.users.config.Config;
 import com.bekwam.spi.users.config.ConfigMetadataFactory;
 import com.bekwam.spi.users.config.DBVendorType;
+import com.bekwam.spi.users.data.ColumnMapping;
 import com.bekwam.spi.users.data.UserDAOImpl;
 import com.bekwam.spi.users.metadata.PropertiesServerInfoDelegate;
 import com.google.common.base.Preconditions;
@@ -75,7 +76,8 @@ public class JDBCUserStorageProviderFactory
                         config.getRolesSQL(),
                         new UserDAOImpl(
                                 config.getAllUsersSQL(),
-                                config.getSearchUsersSQL()
+                                config.getSearchUsersSQL(),
+                                ColumnMapping.parse(config.getColumnMapping())
                         )
                 );
             } else {
@@ -216,4 +218,3 @@ public class JDBCUserStorageProviderFactory
         return configMetadata;
     }
 }
-

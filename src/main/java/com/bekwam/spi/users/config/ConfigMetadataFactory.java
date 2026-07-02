@@ -139,6 +139,16 @@ public class ConfigMetadataFactory {
                 .helpText("SQL select statement called when validating a connection")
                 .add();
 
+        builder
+                .property().name(Constants.PROVIDER_PROPERTY_COLUMN_MAPPING)
+                .type(ProviderConfigProperty.TEXT_TYPE)   // Mehrzeiliges Textfeld
+                .label("Column Mapping")
+                .defaultValue(Constants.DEFAULT_VALUE_COLUMN_MAPPING)
+                .helpText("Eine Zeile pro Mapping: <DB-Spalte/Alias>=<Keycloak-Feld>. " +
+                          "Reservierte Felder: username, password, firstName, lastName, email. " +
+                          "Alles andere wird als Custom-Attribut übernommen.")
+                .add();
+
         return builder.build();
     }
 }
